@@ -57,7 +57,7 @@ simple name in two schemas (`sales.Customer` and `website.Customer`, ...), whose
 
 ## Upstream, and the entities
 
-The sibling checkout `../mssql-sample-databases-persistence` publishes, at `0.0.1-SNAPSHOT`, one jar per database of
+The upstream checkout `../../mssql-sample-databases-persistence` publishes, at `0.0.1-SNAPSHOT`, one jar per database of
 **mapped superclasses (`<db>.mapped.<schema>.Mapped*`), their `Mapped*Id` id classes, their generated static
 metamodel, and `UuidStringAttributeConverter`**. They exist **only in the local `~/.m2`**: after any change upstream,
 run `./mvnw -DskipTests install` there before building here.
@@ -71,7 +71,7 @@ run `./mvnw -DskipTests install` there before building here.
 - Upstream has no H2 and no test-companion jar; its tests are ITs on SQL Server only, and so are these.
 - The version properties in `pom.xml` (Hibernate ORM `7.4.12.Final`, `mssql-jdbc` `13.4.0.jre11`, Hibernate Validator,
   JUnit, AssertJ, ...) deliberately mirror upstream's. Change them in step with upstream, not independently.
-- Read `../mssql-sample-databases-persistence/README.md` before touching anything about the mappings.
+- Read `../../mssql-sample-databases-persistence/README.md` before touching anything about the mappings.
 
 ## Build
 
@@ -92,7 +92,7 @@ that stops the ITs. Both plugins stop after the first failing class (`tests.skip
 fails the build on dependency non-convergence, a JDK below 25, and a `-P` naming a profile that does not exist.
 
 **The integration tests need the SQL Server container upstream owns**: run
-`../mssql-sample-databases-persistence/compose.sh` (Ctrl-C takes it down with its data). It serves the three
+`../../mssql-sample-databases-persistence/compose.sh` (Ctrl-C takes it down with its data). It serves the three
 databases on `localhost:1433`, `sa` / `Passw0rd!`. Each module's `<db>-it` unit connects there with
 `hbm2ddl.auto=none`: the sample data is the fixture the ITs read, and nothing may touch the schema or leave rows
 behind.

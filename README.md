@@ -48,7 +48,7 @@ so unlike upstream this build has no provider profiles.
 Upstream owns the container:
 
 ```shell
-$ cd ../mssql-sample-databases-persistence && ./compose.sh
+$ cd ../../mssql-sample-databases-persistence && ./compose.sh
 ```
 
 brings up SQL Server on `localhost:1433` as `sa` / `Passw0rd!`, with the three databases loaded; Ctrl-C takes it down
@@ -63,5 +63,5 @@ $ ./_mvn_verify_notests.sh    # no database needed
 
 There are no unit tests: every test is an integration test (`*_IT`) on SQL Server.
 
-The upstream jars are local `SNAPSHOT`s: `./mvnw -DskipTests install` in `../mssql-sample-databases-persistence`
+The upstream jars are local `SNAPSHOT`s: `./mvnw -DskipTests install` in `../../mssql-sample-databases-persistence`
 first.
