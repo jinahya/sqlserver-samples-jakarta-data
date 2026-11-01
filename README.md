@@ -1,10 +1,10 @@
-# mssql-sample-databases-jakarta-data
+# sql-server-samples-jakarta-data
 
 [Jakarta Data](https://jakarta.ee/specifications/data/1.0/) repositories of the Microsoft SQL Server sample databases
 (AdventureWorks, WideWorldImporters, FutonManufacturing), over the mapped superclasses of
-[mssql-sample-databases-persistence](https://github.com/jinahya/mssql-sample-databases-persistence).
+[sql-server-samples-persistence](https://github.com/jinahya/sql-server-samples-persistence).
 
-The sibling [mssql-sample-databases-spring-data](https://github.com/jinahya/mssql-sample-databases-spring-data) does
+The sibling [sql-server-samples-spring-data](https://github.com/jinahya/sql-server-samples-spring-data) does
 the same in Spring Data JPA.
 
 ## The modules
@@ -48,7 +48,7 @@ so unlike upstream this build has no provider profiles.
 Upstream owns the container:
 
 ```shell
-$ cd ../../mssql-sample-databases-persistence && ./compose.sh
+$ cd ../../sql-server-samples-persistence && ./compose.sh
 ```
 
 brings up SQL Server on `localhost:1433` as `sa` / `Passw0rd!`, with the three databases loaded; Ctrl-C takes it down
@@ -63,5 +63,5 @@ $ ./_mvn_verify_notests.sh    # no database needed
 
 There are no unit tests: every test is an integration test (`*_IT`) on SQL Server.
 
-The upstream jars are local `SNAPSHOT`s: `./mvnw -DskipTests install` in `../../mssql-sample-databases-persistence`
+The upstream jars are local `SNAPSHOT`s: `./mvnw -DskipTests install` in `../../sql-server-samples-persistence`
 first.

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Test-only. The unit mirrors upstream's
-  (../../mssql-sample-databases-persistence/mssql-sample-databases-persistence-wideworldimporters/src/test/resources/META-INF/persistence.xml);
+  (../../sql-server-samples-persistence/mssql-sample-databases-persistence-wideworldimporters/src/test/resources/META-INF/persistence.xml);
   keep them in step. Hibernate only: EclipseLink has no Jakarta Data.
 
   No repository names a unit (@Repository(dataStore = ...)): the generated <Name>_ takes its factory from the

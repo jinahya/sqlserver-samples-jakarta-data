@@ -5,7 +5,7 @@
 # There are no unit tests; every test needs the database. The ITs talk to the SQL Server upstream owns, at
 # localhost:1433 (the `<db>-it` unit of each module's src/test/resources/META-INF/persistence.xml); bring it up with
 #
-#     cd ../../mssql-sample-databases-persistence && ./compose.sh
+#     cd ../../sql-server-samples-persistence && ./compose.sh
 #
 # first; otherwise they fail on the connection rather than on a query.
 #

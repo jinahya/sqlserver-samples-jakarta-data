@@ -6,7 +6,7 @@
     Modelled on the sibling postgresql-demodb-jakarta-data: Jakarta Data over an upstream persistence project,
     parent-less, the Jakarta EE 11 BOM for the APIs and Hibernate's platform BOM for the provider, the entities copied
     from upstream's test sources into each module's src/main. The difference is the shape: upstream
-    (mssql-sample-databases-persistence) is one module per database, and so is this, each module depending on its
+    (sql-server-samples-persistence) is one module per database, and so is this, each module depending on its
     upstream module only. This pom is both the aggregator and the parent of the three.
     -->
   <groupId>io.github.jinahya</groupId>
