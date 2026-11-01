@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Test-only. The unit mirrors upstream's
+  (../mssql-sample-databases-persistence/mssql-sample-databases-persistence-wideworldimporters/src/test/resources/META-INF/persistence.xml);
+  keep them in step. Hibernate only: EclipseLink has no Jakarta Data.
+
+  No repository names a unit (@Repository(dataStore = ...)): the generated <Name>_ takes its factory from the
+  container, which _Repository_IT produces from this unit; see __Repository_TestBase.
+
+  The unit lists upstream's converter and every entity of this module, as upstream's does; with
+  exclude-unlisted-classes, an entity not listed is not managed, and a converter not listed is not found.
+  -->
+<!-- https://jakarta.ee/xml/ns/persistence/ -->
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
+             version="3.2">
+  <!-- named after the database, as upstream's: the modules' test classpaths can meet in one JVM (an IDE running -->
+  <!-- every test of the project), and two units sharing a name there is unspecified -->
+  <persistence-unit name="wideworldimporters-it" transaction-type="RESOURCE_LOCAL">
+    <description>Persistence Unit for WideWorldImporters on a Physical Database</description>
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.mapped.UuidStringAttributeConverter</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.application.City</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.application.Country</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.application.DeliveryMethod</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.application.PaymentMethod</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.application.Person</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.application.StateProvince</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.application.SystemParameter</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.application.TransactionType</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.purchasing.PurchaseOrder</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.purchasing.PurchaseOrderLine</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.purchasing.Supplier</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.purchasing.SupplierCategory</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.purchasing.SupplierTransaction</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.sales.BuyingGroup</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.sales.Customer</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.sales.CustomerCategory</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.sales.CustomerTransaction</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.sales.Invoice</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.sales.InvoiceLine</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.sales.Order</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.sales.OrderLine</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.sales.SpecialDeal</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.warehouse.ColdRoomTemperature</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.warehouse.Color</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.warehouse.PackageType</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.warehouse.StockGroup</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.warehouse.StockItem</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.warehouse.StockItemHolding</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.warehouse.StockItemStockGroup</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.warehouse.StockItemTransaction</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.warehouse.VehicleTemperature</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.website.Customer</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.website.Supplier</class>
+    <class>com.github.jinahya.mssql.sample.databases.persistence.wideworldimporters.website.VehicleTemperature</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
+    <validation-mode>CALLBACK</validation-mode>
+    <properties>
+      <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <!-- the database of upstream's compose.yaml; see its compose.sh -->
+      <property name="jakarta.persistence.jdbc.url"
+                value="jdbc:sqlserver://localhost:1433;encrypt=true;trustServerCertificate=true;databaseName=WideWorldImporters"/>
+      <property name="jakarta.persistence.jdbc.user" value="sa"/>
+      <property name="jakarta.persistence.jdbc.password" value="Passw0rd!"/>
+      <!-- The sample data is the fixture the tests read; nothing here may touch the schema. -->
+      <property name="hibernate.hbm2ddl.auto" value="none"/>
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="hibernate.highlight_sql" value="true"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.use_sql_comment" value="true"/>
+    </properties>
+  </persistence-unit>
+</persistence>

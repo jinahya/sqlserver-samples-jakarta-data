@@ -1,0 +1,16 @@
+package com.github.jinahya.mssql.sample.databases.persistence.adventureworks.person.data;
+
+import com.github.jinahya.mssql.sample.databases.persistence.adventureworks.data._Repository;
+import com.github.jinahya.mssql.sample.databases.persistence.adventureworks.person.StateProvince;
+import jakarta.data.repository.CrudRepository;
+import jakarta.data.repository.Repository;
+
+/**
+ * A repository for {@link StateProvince}.
+ */
+@Repository
+public interface StateProvinceRepository
+        extends _Repository<StateProvince, Integer>,
+                CrudRepository<StateProvince, Integer> {
+
+}
