@@ -9,9 +9,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(AwBuildVersionRepository_.class)
 class AwBuildVersionRepository_IT
-        extends _Repository_IT<AwBuildVersionRepository, AwBuildVersion, Short> {
+        extends _Repository_IT<AwBuildVersionRepository, AwBuildVersion, Long> {
 
     AwBuildVersionRepository_IT() {
-        super(AwBuildVersionRepository.class, AwBuildVersion.class, Short.class);
+        super(AwBuildVersionRepository.class, AwBuildVersion.class, Long.class);
     }
 }

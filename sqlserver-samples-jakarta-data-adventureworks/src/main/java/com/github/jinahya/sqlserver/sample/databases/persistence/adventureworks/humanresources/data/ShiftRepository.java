@@ -10,7 +10,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface ShiftRepository
-        extends _Repository<Shift, Short>,
-                CrudRepository<Shift, Short> {
+        extends _Repository<Shift, Long>,
+                CrudRepository<Shift, Long> {
 
 }

@@ -9,9 +9,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(ShiftRepository_.class)
 class ShiftRepository_IT
-        extends _Repository_IT<ShiftRepository, Shift, Short> {
+        extends _Repository_IT<ShiftRepository, Shift, Long> {
 
     ShiftRepository_IT() {
-        super(ShiftRepository.class, Shift.class, Short.class);
+        super(ShiftRepository.class, Shift.class, Long.class);
     }
 }

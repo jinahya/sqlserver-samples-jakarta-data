@@ -10,7 +10,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface JobCandidateRepository
-        extends _Repository<JobCandidate, Integer>,
-                CrudRepository<JobCandidate, Integer> {
+        extends _Repository<JobCandidate, Long>,
+                CrudRepository<JobCandidate, Long> {
 
 }

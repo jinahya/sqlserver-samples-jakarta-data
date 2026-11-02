@@ -9,9 +9,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(ErrorLogRepository_.class)
 class ErrorLogRepository_IT
-        extends _Repository_IT<ErrorLogRepository, ErrorLog, Integer> {
+        extends _Repository_IT<ErrorLogRepository, ErrorLog, Long> {
 
     ErrorLogRepository_IT() {
-        super(ErrorLogRepository.class, ErrorLog.class, Integer.class);
+        super(ErrorLogRepository.class, ErrorLog.class, Long.class);
     }
 }

@@ -10,7 +10,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface AwBuildVersionRepository
-        extends _Repository<AwBuildVersion, Short>,
-                CrudRepository<AwBuildVersion, Short> {
+        extends _Repository<AwBuildVersion, Long>,
+                CrudRepository<AwBuildVersion, Long> {
 
 }

@@ -9,9 +9,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(JobCandidateRepository_.class)
 class JobCandidateRepository_IT
-        extends _Repository_IT<JobCandidateRepository, JobCandidate, Integer> {
+        extends _Repository_IT<JobCandidateRepository, JobCandidate, Long> {
 
     JobCandidateRepository_IT() {
-        super(JobCandidateRepository.class, JobCandidate.class, Integer.class);
+        super(JobCandidateRepository.class, JobCandidate.class, Long.class);
     }
 }

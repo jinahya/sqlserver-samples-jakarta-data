@@ -10,7 +10,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface ErrorLogRepository
-        extends _Repository<ErrorLog, Integer>,
-                CrudRepository<ErrorLog, Integer> {
+        extends _Repository<ErrorLog, Long>,
+                CrudRepository<ErrorLog, Long> {
 
 }

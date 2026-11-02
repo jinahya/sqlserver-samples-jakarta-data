@@ -9,9 +9,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(DatabaseLogRepository_.class)
 class DatabaseLogRepository_IT
-        extends _Repository_IT<DatabaseLogRepository, DatabaseLog, Integer> {
+        extends _Repository_IT<DatabaseLogRepository, DatabaseLog, Long> {
 
     DatabaseLogRepository_IT() {
-        super(DatabaseLogRepository.class, DatabaseLog.class, Integer.class);
+        super(DatabaseLogRepository.class, DatabaseLog.class, Long.class);
     }
 }

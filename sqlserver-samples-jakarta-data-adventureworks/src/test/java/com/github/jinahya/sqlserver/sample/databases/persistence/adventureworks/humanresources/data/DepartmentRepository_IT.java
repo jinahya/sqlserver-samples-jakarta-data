@@ -9,9 +9,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(DepartmentRepository_.class)
 class DepartmentRepository_IT
-        extends _Repository_IT<DepartmentRepository, Department, Short> {
+        extends _Repository_IT<DepartmentRepository, Department, Long> {
 
     DepartmentRepository_IT() {
-        super(DepartmentRepository.class, Department.class, Short.class);
+        super(DepartmentRepository.class, Department.class, Long.class);
     }
 }

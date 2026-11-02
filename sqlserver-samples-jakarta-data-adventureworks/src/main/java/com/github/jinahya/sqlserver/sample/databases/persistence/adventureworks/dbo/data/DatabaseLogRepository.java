@@ -10,7 +10,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface DatabaseLogRepository
-        extends _Repository<DatabaseLog, Integer>,
-                CrudRepository<DatabaseLog, Integer> {
+        extends _Repository<DatabaseLog, Long>,
+                CrudRepository<DatabaseLog, Long> {
 
 }
