@@ -1,0 +1,18 @@
+package com.github.jinahya.sqlserver.sample.persistence.futonmanufacturing.dbo.data;
+
+import com.github.jinahya.sqlserver.sample.persistence.futonmanufacturing.data._Repository_IT;
+import com.github.jinahya.sqlserver.sample.persistence.futonmanufacturing.dbo.InventoryTransaction;
+import com.github.jinahya.sqlserver.sample.persistence.futonmanufacturing.dbo.data.InventoryTransactionRepository;
+import org.jboss.weld.junit5.auto.AddBeanClasses;
+
+/**
+ * The integration tests of {@link InventoryTransactionRepository}.
+ */
+@AddBeanClasses(InventoryTransactionRepository_.class)
+class InventoryTransactionRepository_IT
+        extends _Repository_IT<InventoryTransactionRepository, InventoryTransaction, Integer> {
+
+    InventoryTransactionRepository_IT() {
+        super(InventoryTransactionRepository.class, InventoryTransaction.class, Integer.class);
+    }
+}
