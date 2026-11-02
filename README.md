@@ -25,15 +25,15 @@ only.
 Upstream publishes mapped superclasses (`MappedCustomer`, ...), their static metamodel, the `Mapped*Id` id classes
 and a converter, and keeps its entities in its test sources: which associations to map, and how, is an application's
 decision. This project is that application. Each module's entities, one package per schema
-(`com.github.jinahya.sqlserver.sample.databases.persistence.<db>.<schema>`), are copies of upstream's test entities,
+(`com.github.jinahya.sqlserver.sample.persistence.<db>.<schema>`), are copies of upstream's test entities,
 kept in step with them. Upstream's keyless classes (views without a key, the `*_Archive` history tables,
 `ProductDocument`) are not entities and are not copied.
 
 ## The repositories
 
 One per entity, `<Entity>Repository`, in the `data` package of its schema
-(`com.github.jinahya.sqlserver.sample.databases.persistence.<db>.<schema>.data`). Each extends `_Repository<E, K>`, of
-`com.github.jinahya.sqlserver.sample.databases.persistence.<db>.data`, and `CrudRepository<E, K>`. `K` is the type of the
+(`com.github.jinahya.sqlserver.sample.persistence.<db>.<schema>.data`). Each extends `_Repository<E, K>`, of
+`com.github.jinahya.sqlserver.sample.persistence.<db>.data`, and `CrudRepository<E, K>`. `K` is the type of the
 entity's `@Id`, or its `Mapped*Id` class for an entity with an `@IdClass`.
 
 ## The provider

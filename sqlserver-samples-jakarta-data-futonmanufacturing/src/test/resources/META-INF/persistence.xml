@@ -20,7 +20,6 @@
   <persistence-unit name="futonmanufacturing-it" transaction-type="RESOURCE_LOCAL">
     <description>Persistence Unit for FutonManufacturing on a Physical Database</description>
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    <class>com.github.jinahya.sqlserver.sample.databases.persistence.futonmanufacturing.mapped.UuidStringAttributeConverter</class>
     <class>com.github.jinahya.sqlserver.sample.persistence.futonmanufacturing.dbo.BillOfMaterials</class>
     <class>com.github.jinahya.sqlserver.sample.persistence.futonmanufacturing.dbo.CostRollUpView</class>
     <class>com.github.jinahya.sqlserver.sample.persistence.futonmanufacturing.dbo.Customer</class>

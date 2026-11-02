@@ -20,7 +20,13 @@
   <persistence-unit name="adventureworks-it" transaction-type="RESOURCE_LOCAL">
     <description>Persistence Unit for AdventureWorks on a Physical Database</description>
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    <class>com.github.jinahya.sqlserver.sample.databases.persistence.adventureworks.mapped.UuidStringAttributeConverter</class>
+    <class>com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.AdditionalContactInfoStringAttributeConverter</class>
+    <class>com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.dbo.EventInstanceStringAttributeConverter</class>
+    <class>com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.MappedProduct$ProductClassConverter</class>
+    <class>com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.MappedProduct$ProductLineConverter</class>
+    <class>com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.MappedProduct$ProductStyleConverter</class>
+    <class>com.github.jinahya.sqlserver.sample.persistence.common.GeographyAttributeConverter</class>
+    <class>com.github.jinahya.sqlserver.sample.persistence.common.HeirarchyidAttributeConverter</class>
     <class>com.github.jinahya.sqlserver.sample.persistence.adventureworks.dbo.AwBuildVersion</class>
     <class>com.github.jinahya.sqlserver.sample.persistence.adventureworks.dbo.DatabaseLog</class>
     <class>com.github.jinahya.sqlserver.sample.persistence.adventureworks.dbo.ErrorLog</class>

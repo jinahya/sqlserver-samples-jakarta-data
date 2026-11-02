@@ -20,7 +20,7 @@
   <persistence-unit name="wideworldimporters-it" transaction-type="RESOURCE_LOCAL">
     <description>Persistence Unit for WideWorldImporters on a Physical Database</description>
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    <class>com.github.jinahya.sqlserver.sample.databases.persistence.wideworldimporters.mapped.UuidStringAttributeConverter</class>
+    <class>com.github.jinahya.sqlserver.sample.persistence.common.GeographyAttributeConverter</class>
     <class>com.github.jinahya.sqlserver.sample.persistence.wideworldimporters.application.City</class>
     <class>com.github.jinahya.sqlserver.sample.persistence.wideworldimporters.application.Country</class>
     <class>com.github.jinahya.sqlserver.sample.persistence.wideworldimporters.application.DeliveryMethod</class>

@@ -21,11 +21,11 @@ module declares only its upstream module (`sqlserver-samples-persistence-<db>`).
 
 Packages, per module (`<db>` is `adventureworks`, `futonmanufacturing` or `wideworldimporters`):
 
-- `com.github.jinahya.sqlserver.sample.databases.persistence.<db>.<schema>`: the entities, **in this project's
+- `com.github.jinahya.sqlserver.sample.persistence.<db>.<schema>`: the entities, **in this project's
   `src/main`**, one package per schema (`dbo`, `sales`, ...).
-- `com.github.jinahya.sqlserver.sample.databases.persistence.<db>.<schema>.data`: the repositories of that schema's
+- `com.github.jinahya.sqlserver.sample.persistence.<db>.<schema>.data`: the repositories of that schema's
   entities (`@NullMarked`, JSpecify).
-- `com.github.jinahya.sqlserver.sample.databases.persistence.<db>.data`: `_Repository<T, K>`, the unannotated base of
+- `com.github.jinahya.sqlserver.sample.persistence.<db>.data`: `_Repository<T, K>`, the unannotated base of
   every repository of the module (`@NullMarked`), and, in `src/test`, the test bases.
 
 A repository per schema package, not one `data` package per module: WideWorldImporters has entities of the same
@@ -59,8 +59,10 @@ simple name in two schemas (`sales.Customer` and `website.Customer`, ...), whose
 
 The upstream checkout `../../sqlserver-samples-persistence` publishes, at `0.0.1-SNAPSHOT`, one jar per database of
 **mapped superclasses (`<db>.mapped.<schema>.Mapped*`), their `Mapped*Id` id classes, their generated static
-metamodel, and `UuidStringAttributeConverter`**. They exist **only in the local `~/.m2`**: after any change upstream,
-run `./mvnw -DskipTests install` there before building here.
+metamodel, and their attribute converters**, with the `geography` and `hierarchyid` converters in the shared
+`sqlserver-samples-persistence-common` jar. They exist **only in the local `~/.m2`**: after any change upstream, run
+`./mvnw -DskipTests install` there before building here. Each module's `persistence.xml` lists the converters
+upstream's lists.
 
 - **Upstream keeps its entities in `src/test`**, on purpose: which associations an entity maps is an application's
   decision, and this project is that application. The entities here are verbatim copies of upstream's test
