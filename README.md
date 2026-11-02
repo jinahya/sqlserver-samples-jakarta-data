@@ -1,10 +1,10 @@
-# sql-server-samples-jakarta-data
+# sqlserver-samples-jakarta-data
 
 [Jakarta Data](https://jakarta.ee/specifications/data/1.0/) repositories of the Microsoft SQL Server sample databases
 (AdventureWorks, WideWorldImporters, FutonManufacturing), over the mapped superclasses of
-[sql-server-samples-persistence](https://github.com/jinahya/sql-server-samples-persistence).
+[sqlserver-samples-persistence](https://github.com/jinahya/sqlserver-samples-persistence).
 
-The sibling [sql-server-samples-spring-data](https://github.com/jinahya/sql-server-samples-spring-data) does
+The sibling [sqlserver-samples-spring-data](https://github.com/jinahya/sqlserver-samples-spring-data) does
 the same in Spring Data JPA.
 
 ## The modules
@@ -13,9 +13,9 @@ One per database, as upstream:
 
 | module                                                 | upstream module                                         | entities |
 |--------------------------------------------------------|---------------------------------------------------------|---------:|
-| `mssql-sample-databases-jakarta-data-adventureworks`     | `mssql-sample-databases-persistence-adventureworks`     |       82 |
-| `mssql-sample-databases-jakarta-data-futonmanufacturing` | `mssql-sample-databases-persistence-futonmanufacturing` |       50 |
-| `mssql-sample-databases-jakarta-data-wideworldimporters` | `mssql-sample-databases-persistence-wideworldimporters` |       34 |
+| `sqlserver-samples-jakarta-data-adventureworks`     | `sqlserver-samples-persistence-adventureworks`     |       82 |
+| `sqlserver-samples-jakarta-data-futonmanufacturing` | `sqlserver-samples-persistence-futonmanufacturing` |       50 |
+| `sqlserver-samples-jakarta-data-wideworldimporters` | `sqlserver-samples-persistence-wideworldimporters` |       34 |
 
 The root `pom.xml` is both the aggregator and the parent of the three; each module depends on its upstream module
 only.
@@ -25,15 +25,15 @@ only.
 Upstream publishes mapped superclasses (`MappedCustomer`, ...), their static metamodel, the `Mapped*Id` id classes
 and a converter, and keeps its entities in its test sources: which associations to map, and how, is an application's
 decision. This project is that application. Each module's entities, one package per schema
-(`com.github.jinahya.mssql.sample.databases.persistence.<db>.<schema>`), are copies of upstream's test entities,
+(`com.github.jinahya.sqlserver.sample.databases.persistence.<db>.<schema>`), are copies of upstream's test entities,
 kept in step with them. Upstream's keyless classes (views without a key, the `*_Archive` history tables,
 `ProductDocument`) are not entities and are not copied.
 
 ## The repositories
 
 One per entity, `<Entity>Repository`, in the `data` package of its schema
-(`com.github.jinahya.mssql.sample.databases.persistence.<db>.<schema>.data`). Each extends `_Repository<E, K>`, of
-`com.github.jinahya.mssql.sample.databases.persistence.<db>.data`, and `CrudRepository<E, K>`. `K` is the type of the
+(`com.github.jinahya.sqlserver.sample.databases.persistence.<db>.<schema>.data`). Each extends `_Repository<E, K>`, of
+`com.github.jinahya.sqlserver.sample.databases.persistence.<db>.data`, and `CrudRepository<E, K>`. `K` is the type of the
 entity's `@Id`, or its `Mapped*Id` class for an entity with an `@IdClass`.
 
 ## The provider
@@ -48,7 +48,7 @@ so unlike upstream this build has no provider profiles.
 Upstream owns the container:
 
 ```shell
-$ cd ../../sql-server-samples-persistence && ./compose.sh
+$ cd ../../sqlserver-samples-persistence && ./compose.sh
 ```
 
 brings up SQL Server on `localhost:1433` as `sa` / `Passw0rd!`, with the three databases loaded; Ctrl-C takes it down
@@ -63,5 +63,5 @@ $ ./_mvn_verify_notests.sh    # no database needed
 
 There are no unit tests: every test is an integration test (`*_IT`) on SQL Server.
 
-The upstream jars are local `SNAPSHOT`s: `./mvnw -DskipTests install` in `../../sql-server-samples-persistence`
+The upstream jars are local `SNAPSHOT`s: `./mvnw -DskipTests install` in `../../sqlserver-samples-persistence`
 first.

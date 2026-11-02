@@ -6,11 +6,11 @@
     Modelled on the sibling postgresql-demodb-jakarta-data: Jakarta Data over an upstream persistence project,
     parent-less, the Jakarta EE 11 BOM for the APIs and Hibernate's platform BOM for the provider, the entities copied
     from upstream's test sources into each module's src/main. The difference is the shape: upstream
-    (sql-server-samples-persistence) is one module per database, and so is this, each module depending on its
+    (sqlserver-samples-persistence) is one module per database, and so is this, each module depending on its
     upstream module only. This pom is both the aggregator and the parent of the three.
     -->
   <groupId>io.github.jinahya</groupId>
-  <artifactId>mssql-sample-databases-jakarta-data</artifactId>
+  <artifactId>sqlserver-samples-jakarta-data</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -37,9 +37,9 @@
   </developers>
 
   <modules>
-    <module>mssql-sample-databases-jakarta-data-adventureworks</module>
-    <module>mssql-sample-databases-jakarta-data-futonmanufacturing</module>
-    <module>mssql-sample-databases-jakarta-data-wideworldimporters</module>
+    <module>sqlserver-samples-jakarta-data-adventureworks</module>
+    <module>sqlserver-samples-jakarta-data-futonmanufacturing</module>
+    <module>sqlserver-samples-jakarta-data-wideworldimporters</module>
   </modules>
 
   <scm>
@@ -87,7 +87,7 @@
     <version.org.hibernate.orm>7.4.12.Final</version.org.hibernate.orm>
 
     <!-- Local SNAPSHOT only: `./mvnw -DskipTests install` the sibling checkout to pick up a change there. -->
-    <version.mssql-sample-databases-persistence>0.0.1-SNAPSHOT</version.mssql-sample-databases-persistence>
+    <version.sqlserver-samples-persistence>0.0.1-SNAPSHOT</version.sqlserver-samples-persistence>
 
     <!-- The versions below mirror upstream's pom (version.* properties of the same name); change them in step. -->
     <!-- https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc/versions -->
@@ -159,18 +159,18 @@
       <!-- The upstream jars, one per database: the mapped superclasses, their static metamodel, the converter. -->
       <dependency>
         <groupId>io.github.jinahya</groupId>
-        <artifactId>mssql-sample-databases-persistence-adventureworks</artifactId>
-        <version>${version.mssql-sample-databases-persistence}</version>
+        <artifactId>sqlserver-samples-persistence-adventureworks</artifactId>
+        <version>${version.sqlserver-samples-persistence}</version>
       </dependency>
       <dependency>
         <groupId>io.github.jinahya</groupId>
-        <artifactId>mssql-sample-databases-persistence-futonmanufacturing</artifactId>
-        <version>${version.mssql-sample-databases-persistence}</version>
+        <artifactId>sqlserver-samples-persistence-futonmanufacturing</artifactId>
+        <version>${version.sqlserver-samples-persistence}</version>
       </dependency>
       <dependency>
         <groupId>io.github.jinahya</groupId>
-        <artifactId>mssql-sample-databases-persistence-wideworldimporters</artifactId>
-        <version>${version.mssql-sample-databases-persistence}</version>
+        <artifactId>sqlserver-samples-persistence-wideworldimporters</artifactId>
+        <version>${version.sqlserver-samples-persistence}</version>
       </dependency>
 
       <dependency>

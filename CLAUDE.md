@@ -5,27 +5,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this project is
 
 Jakarta Data 1.0 repositories over the Jakarta Persistence mappings of
-[`sql-server-samples-persistence`](https://github.com/jinahya/sql-server-samples-persistence), which maps
+[`sqlserver-samples-persistence`](https://github.com/jinahya/sqlserver-samples-persistence), which maps
 the Microsoft SQL Server sample databases. A parent-less multi-module Maven project, one module per database, as
 upstream:
 
-- `mssql-sample-databases-jakarta-data-adventureworks` (AdventureWorks; 82 entities)
-- `mssql-sample-databases-jakarta-data-futonmanufacturing` (FutonManufacturing; 50 entities)
-- `mssql-sample-databases-jakarta-data-wideworldimporters` (WideWorldImporters; 34 entities)
+- `sqlserver-samples-jakarta-data-adventureworks` (AdventureWorks; 82 entities)
+- `sqlserver-samples-jakarta-data-futonmanufacturing` (FutonManufacturing; 50 entities)
+- `sqlserver-samples-jakarta-data-wideworldimporters` (WideWorldImporters; 34 entities)
 
-The root `pom.xml` (`io.github.jinahya:sql-server-samples-jakarta-data`) is the aggregator and the parent of the
+The root `pom.xml` (`io.github.jinahya:sqlserver-samples-jakarta-data`) is the aggregator and the parent of the
 three. Shared versions live in its `properties` / `dependencyManagement` / `pluginManagement`; the dependencies every
 module needs (the `provided` APIs, the test frameworks, the driver) are declared once in its `dependencies`. Each
-module declares only its upstream module (`mssql-sample-databases-persistence-<db>`). The shape follows the sibling
+module declares only its upstream module (`sqlserver-samples-persistence-<db>`). The shape follows the sibling
 `../postgresql-demodb-jakarta-data`, except that this project has no H2 and no unit tests.
 
 Packages, per module (`<db>` is `adventureworks`, `futonmanufacturing` or `wideworldimporters`):
 
-- `com.github.jinahya.mssql.sample.databases.persistence.<db>.<schema>`: the entities, **in this project's
+- `com.github.jinahya.sqlserver.sample.databases.persistence.<db>.<schema>`: the entities, **in this project's
   `src/main`**, one package per schema (`dbo`, `sales`, ...).
-- `com.github.jinahya.mssql.sample.databases.persistence.<db>.<schema>.data`: the repositories of that schema's
+- `com.github.jinahya.sqlserver.sample.databases.persistence.<db>.<schema>.data`: the repositories of that schema's
   entities (`@NullMarked`, JSpecify).
-- `com.github.jinahya.mssql.sample.databases.persistence.<db>.data`: `_Repository<T, K>`, the unannotated base of
+- `com.github.jinahya.sqlserver.sample.databases.persistence.<db>.data`: `_Repository<T, K>`, the unannotated base of
   every repository of the module (`@NullMarked`), and, in `src/test`, the test bases.
 
 A repository per schema package, not one `data` package per module: WideWorldImporters has entities of the same
@@ -57,7 +57,7 @@ simple name in two schemas (`sales.Customer` and `website.Customer`, ...), whose
 
 ## Upstream, and the entities
 
-The upstream checkout `../../sql-server-samples-persistence` publishes, at `0.0.1-SNAPSHOT`, one jar per database of
+The upstream checkout `../../sqlserver-samples-persistence` publishes, at `0.0.1-SNAPSHOT`, one jar per database of
 **mapped superclasses (`<db>.mapped.<schema>.Mapped*`), their `Mapped*Id` id classes, their generated static
 metamodel, and `UuidStringAttributeConverter`**. They exist **only in the local `~/.m2`**: after any change upstream,
 run `./mvnw -DskipTests install` there before building here.
@@ -71,7 +71,7 @@ run `./mvnw -DskipTests install` there before building here.
 - Upstream has no H2 and no test-companion jar; its tests are ITs on SQL Server only, and so are these.
 - The version properties in `pom.xml` (Hibernate ORM `7.4.12.Final`, `mssql-jdbc` `13.4.0.jre11`, Hibernate Validator,
   JUnit, AssertJ, ...) deliberately mirror upstream's. Change them in step with upstream, not independently.
-- Read `../../sql-server-samples-persistence/README.md` before touching anything about the mappings.
+- Read `../../sqlserver-samples-persistence/README.md` before touching anything about the mappings.
 
 ## Build
 
@@ -82,8 +82,8 @@ class that the next incremental compile fails on with an unexplained "cannot fin
 ```sh
 ./_mvn_verify.sh                       # compile, package, and the integration tests (*IT) against SQL Server
 ./_mvn_verify_notests.sh               # full lifecycle, tests compiled but not run; no database needed
-./_mvn_verify.sh -pl mssql-sample-databases-jakarta-data-adventureworks                        # one module
-./_mvn_verify.sh -pl mssql-sample-databases-jakarta-data-adventureworks -Dit.test=PersonRepository_IT
+./_mvn_verify.sh -pl sqlserver-samples-jakarta-data-adventureworks                        # one module
+./_mvn_verify.sh -pl sqlserver-samples-jakarta-data-adventureworks -Dit.test=PersonRepository_IT
 ```
 
 Failsafe is bound only by the `failsafe` profile (`-Pfailsafe`), picking up `**/*IT.java`; a plain `./mvnw verify`
@@ -92,7 +92,7 @@ that stops the ITs. Both plugins stop after the first failing class (`tests.skip
 fails the build on dependency non-convergence, a JDK below 25, and a `-P` naming a profile that does not exist.
 
 **The integration tests need the SQL Server container upstream owns**: run
-`../../sql-server-samples-persistence/compose.sh` (Ctrl-C takes it down with its data). It serves the three
+`../../sqlserver-samples-persistence/compose.sh` (Ctrl-C takes it down with its data). It serves the three
 databases on `localhost:1433`, `sa` / `Passw0rd!`. Each module's `<db>-it` unit connects there with
 `hbm2ddl.auto=none`: the sample data is the fixture the ITs read, and nothing may touch the schema or leave rows
 behind.
