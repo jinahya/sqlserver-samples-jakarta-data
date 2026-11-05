@@ -315,7 +315,7 @@
     </dependency>
 
     <!-- test runtime =============================================================================================== -->
-    <!-- The driver for the SQL Server upstream's compose.sh brings up; test scope, so consumers do not get it. -->
+    <!-- The driver for the SQL Server upstream's _compose.sh brings up; test scope, so consumers do not get it. -->
     <dependency>
       <groupId>com.microsoft.sqlserver</groupId>
       <artifactId>mssql-jdbc</artifactId>
@@ -443,7 +443,7 @@
 
   <profiles>
     <!--
-      Binds maven-failsafe-plugin, which runs the *IT classes against the SQL Server upstream's compose.sh brings up.
+      Binds maven-failsafe-plugin, which runs the *IT classes against the SQL Server upstream's _compose.sh brings up.
       A profile, as upstream, so that a plain `mvnw verify` needs no database.
       -->
     <profile>

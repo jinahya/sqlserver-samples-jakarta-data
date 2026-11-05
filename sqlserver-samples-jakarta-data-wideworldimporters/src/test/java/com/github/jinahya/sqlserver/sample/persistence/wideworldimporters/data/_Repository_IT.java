@@ -10,7 +10,7 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
 
 /**
  * The base of the integration tests of a repository, on the {@value #PERSISTENCE_UNIT_NAME} unit: the
- * {@code WideWorldImporters} database of the SQL Server upstream's {@code compose.sh} brings up on {@code localhost:1433}.
+ * {@code WideWorldImporters} database of the SQL Server upstream's {@code _compose.sh} brings up on {@code localhost:1433}.
  * <p>
  * The sample data is the fixture. A test reads the rows that are there, and anything it writes it does inside a
  * transaction it rolls back.

@@ -94,7 +94,7 @@ that stops the ITs. Both plugins stop after the first failing class (`tests.skip
 fails the build on dependency non-convergence, a JDK below 25, and a `-P` naming a profile that does not exist.
 
 **The integration tests need the SQL Server container upstream owns**: run
-`../../sqlserver-samples-persistence/compose.sh` (Ctrl-C takes it down with its data). It serves the three
+`../../sqlserver-samples-persistence/_compose.sh` (Ctrl-C takes it down with its data). It serves the three
 databases on `localhost:1433`, `sa` / `Passw0rd!`. Each module's `<db>-it` unit connects there with
 `hbm2ddl.auto=none`: the sample data is the fixture the ITs read, and nothing may touch the schema or leave rows
 behind.

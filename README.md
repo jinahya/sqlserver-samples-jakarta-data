@@ -48,7 +48,7 @@ so unlike upstream this build has no provider profiles.
 Upstream owns the container:
 
 ```shell
-$ cd ../../sqlserver-samples-persistence && ./compose.sh
+$ cd ../../sqlserver-samples-persistence && ./_compose.sh
 ```
 
 brings up SQL Server on `localhost:1433` as `sa` / `Passw0rd!`, with the three databases loaded; Ctrl-C takes it down
