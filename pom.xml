@@ -84,14 +84,14 @@
       upstream's, so the generated code runs on the ORM whose processor generated upstream's metamodel.
       https://docs.hibernate.org/orm/7.4/repositories/html_single/Hibernate_Data_Repositories.html
       -->
-    <version.org.hibernate.orm>7.4.12.Final</version.org.hibernate.orm>
+    <version.org.hibernate.orm>7.4.15.Final</version.org.hibernate.orm>
 
     <!-- Local SNAPSHOT only: `./mvnw -DskipTests install` the sibling checkout to pick up a change there. -->
     <version.sqlserver-samples-persistence>0.0.1-SNAPSHOT</version.sqlserver-samples-persistence>
 
     <!-- The versions below mirror upstream's pom (version.* properties of the same name); change them in step. -->
     <!-- https://central.sonatype.com/artifact/com.microsoft.sqlserver/mssql-jdbc/versions -->
-    <version.com.microsoft.sqlserver>13.4.0.jre11</version.com.microsoft.sqlserver>
+    <version.com.microsoft.sqlserver>13.6.2.jre11</version.com.microsoft.sqlserver>
     <!-- https://central.sonatype.com/artifact/org.assertj/assertj-core/versions -->
     <version.org.assertj>4.0.0-M1</version.org.assertj>
     <!-- hibernate-validator: 9 / expressly: 6 -->
@@ -100,15 +100,15 @@
     <!-- https://central.sonatype.com/artifact/org.glassfish.jaxb/jaxb-runtime/versions -->
     <version.org.glassfish.jaxb>4.0.9</version.org.glassfish.jaxb>
     <!-- https://central.sonatype.com/artifact/org.hibernate.validator/hibernate-validator/versions -->
-    <version.org.hibernate.validator>9.1.4.Final</version.org.hibernate.validator>
+    <version.org.hibernate.validator>9.1.6.Final</version.org.hibernate.validator>
     <!-- https://central.sonatype.com/artifact/org.junit/junit-bom/versions -->
-    <version.org.junit>5.14.4</version.org.junit>
+    <version.org.junit>6.1.3</version.org.junit>
     <!-- https://central.sonatype.com/artifact/org.slf4j/slf4j-bom/versions -->
     <version.org.slf4j>2.0.20</version.org.slf4j>
 
     <!-- The versions below are this project's own, as the sibling postgresql-demodb-jakarta-data has them. -->
     <!-- https://central.sonatype.com/artifact/ch.qos.logback/logback-classic/versions -->
-    <version.ch.qos.logback>1.6.5</version.ch.qos.logback>
+    <version.ch.qos.logback>1.6.6</version.ch.qos.logback>
     <!-- weld-junit5 (weld-testing) version, not the Weld version; 5.0.x pulls Weld 6 / CDI 4.1 -->
     <!-- https://central.sonatype.com/artifact/org.jboss.weld/weld-junit5/versions -->
     <version.org.jboss.weld>5.0.3.Final</version.org.jboss.weld>
@@ -118,7 +118,7 @@
     <!-- the number of failures after which surefire and failsafe stop; -Dtests.skipAfterFailureCount=0 runs them all -->
     <tests.skipAfterFailureCount>1</tests.skipAfterFailureCount>
     <!-- https://central.sonatype.com/artifact/org.apache.maven.plugins/maven-surefire-plugin/versions -->
-    <version.maven-surefire>3.6.0</version.maven-surefire>
+    <version.maven-surefire>3.6.1</version.maven-surefire>
     <version.maven-failsafe>${version.maven-surefire}</version.maven-failsafe>
   </properties>
 
