@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository_IT;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.MappedWorkOrderRoutingId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.WorkOrderRoutingId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.WorkOrderRouting;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.data.WorkOrderRoutingRepository;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
@@ -11,9 +11,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(WorkOrderRoutingRepository_.class)
 class WorkOrderRoutingRepository_IT
-        extends _Repository_IT<WorkOrderRoutingRepository, WorkOrderRouting, MappedWorkOrderRoutingId> {
+        extends _Repository_IT<WorkOrderRoutingRepository, WorkOrderRouting, WorkOrderRoutingId> {
 
     WorkOrderRoutingRepository_IT() {
-        super(WorkOrderRoutingRepository.class, WorkOrderRouting.class, MappedWorkOrderRoutingId.class);
+        super(WorkOrderRoutingRepository.class, WorkOrderRouting.class, WorkOrderRoutingId.class);
     }
 }

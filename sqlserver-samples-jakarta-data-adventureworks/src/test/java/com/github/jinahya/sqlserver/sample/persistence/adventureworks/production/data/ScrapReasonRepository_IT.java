@@ -10,9 +10,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(ScrapReasonRepository_.class)
 class ScrapReasonRepository_IT
-        extends _Repository_IT<ScrapReasonRepository, ScrapReason, Short> {
+        extends _Repository_IT<ScrapReasonRepository, ScrapReason, Long> {
 
     ScrapReasonRepository_IT() {
-        super(ScrapReasonRepository.class, ScrapReason.class, Short.class);
+        super(ScrapReasonRepository.class, ScrapReason.class, Long.class);
     }
 }

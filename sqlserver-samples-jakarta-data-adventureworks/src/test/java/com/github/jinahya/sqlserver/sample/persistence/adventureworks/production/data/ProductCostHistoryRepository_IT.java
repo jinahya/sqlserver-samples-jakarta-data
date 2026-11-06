@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository_IT;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.MappedProductCostHistoryId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.ProductCostHistoryId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.ProductCostHistory;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.data.ProductCostHistoryRepository;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
@@ -11,9 +11,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(ProductCostHistoryRepository_.class)
 class ProductCostHistoryRepository_IT
-        extends _Repository_IT<ProductCostHistoryRepository, ProductCostHistory, MappedProductCostHistoryId> {
+        extends _Repository_IT<ProductCostHistoryRepository, ProductCostHistory, ProductCostHistoryId> {
 
     ProductCostHistoryRepository_IT() {
-        super(ProductCostHistoryRepository.class, ProductCostHistory.class, MappedProductCostHistoryId.class);
+        super(ProductCostHistoryRepository.class, ProductCostHistory.class, ProductCostHistoryId.class);
     }
 }

@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.person.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository_IT;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.person.MappedBusinessEntityContactId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.person.BusinessEntityContactId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.person.BusinessEntityContact;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.person.data.BusinessEntityContactRepository;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
@@ -11,9 +11,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(BusinessEntityContactRepository_.class)
 class BusinessEntityContactRepository_IT
-        extends _Repository_IT<BusinessEntityContactRepository, BusinessEntityContact, MappedBusinessEntityContactId> {
+        extends _Repository_IT<BusinessEntityContactRepository, BusinessEntityContact, BusinessEntityContactId> {
 
     BusinessEntityContactRepository_IT() {
-        super(BusinessEntityContactRepository.class, BusinessEntityContact.class, MappedBusinessEntityContactId.class);
+        super(BusinessEntityContactRepository.class, BusinessEntityContact.class, BusinessEntityContactId.class);
     }
 }

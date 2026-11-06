@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.sales.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository_IT;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.sales.MappedSalesPersonQuotaHistoryId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.sales.SalesPersonQuotaHistoryId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.sales.SalesPersonQuotaHistory;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.sales.data.SalesPersonQuotaHistoryRepository;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
@@ -11,9 +11,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(SalesPersonQuotaHistoryRepository_.class)
 class SalesPersonQuotaHistoryRepository_IT
-        extends _Repository_IT<SalesPersonQuotaHistoryRepository, SalesPersonQuotaHistory, MappedSalesPersonQuotaHistoryId> {
+        extends _Repository_IT<SalesPersonQuotaHistoryRepository, SalesPersonQuotaHistory, SalesPersonQuotaHistoryId> {
 
     SalesPersonQuotaHistoryRepository_IT() {
-        super(SalesPersonQuotaHistoryRepository.class, SalesPersonQuotaHistory.class, MappedSalesPersonQuotaHistoryId.class);
+        super(SalesPersonQuotaHistoryRepository.class, SalesPersonQuotaHistory.class, SalesPersonQuotaHistoryId.class);
     }
 }

@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.MappedProductInventoryId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.ProductInventoryId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.ProductInventory;
 import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Repository;
@@ -11,7 +11,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface ProductInventoryRepository
-        extends _Repository<ProductInventory, MappedProductInventoryId>,
-                CrudRepository<ProductInventory, MappedProductInventoryId> {
+        extends _Repository<ProductInventory, ProductInventoryId>,
+                CrudRepository<ProductInventory, ProductInventoryId> {
 
 }

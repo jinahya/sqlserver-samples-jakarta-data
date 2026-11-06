@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.person.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.person.MappedBusinessEntityContactId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.person.BusinessEntityContactId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.person.BusinessEntityContact;
 import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Repository;
@@ -11,7 +11,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface BusinessEntityContactRepository
-        extends _Repository<BusinessEntityContact, MappedBusinessEntityContactId>,
-                CrudRepository<BusinessEntityContact, MappedBusinessEntityContactId> {
+        extends _Repository<BusinessEntityContact, BusinessEntityContactId>,
+                CrudRepository<BusinessEntityContact, BusinessEntityContactId> {
 
 }

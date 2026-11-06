@@ -10,7 +10,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface LocationRepository
-        extends _Repository<Location, Short>,
-                CrudRepository<Location, Short> {
+        extends _Repository<Location, Long>,
+                CrudRepository<Location, Long> {
 
 }

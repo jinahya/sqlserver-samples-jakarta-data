@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.sales.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.sales.MappedSpecialOfferProductId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.sales.SpecialOfferProductId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.sales.SpecialOfferProduct;
 import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Repository;
@@ -11,7 +11,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface SpecialOfferProductRepository
-        extends _Repository<SpecialOfferProduct, MappedSpecialOfferProductId>,
-                CrudRepository<SpecialOfferProduct, MappedSpecialOfferProductId> {
+        extends _Repository<SpecialOfferProduct, SpecialOfferProductId>,
+                CrudRepository<SpecialOfferProduct, SpecialOfferProductId> {
 
 }

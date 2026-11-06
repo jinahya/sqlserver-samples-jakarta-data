@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository_IT;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.MappedProductModelIllustrationId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.ProductModelIllustrationId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.ProductModelIllustration;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.data.ProductModelIllustrationRepository;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
@@ -11,9 +11,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(ProductModelIllustrationRepository_.class)
 class ProductModelIllustrationRepository_IT
-        extends _Repository_IT<ProductModelIllustrationRepository, ProductModelIllustration, MappedProductModelIllustrationId> {
+        extends _Repository_IT<ProductModelIllustrationRepository, ProductModelIllustration, ProductModelIllustrationId> {
 
     ProductModelIllustrationRepository_IT() {
-        super(ProductModelIllustrationRepository.class, ProductModelIllustration.class, MappedProductModelIllustrationId.class);
+        super(ProductModelIllustrationRepository.class, ProductModelIllustration.class, ProductModelIllustrationId.class);
     }
 }

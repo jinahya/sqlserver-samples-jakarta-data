@@ -22,8 +22,8 @@ import jakarta.data.repository.CrudRepository;
  * inherited member 'deleteById'".
  *
  * @param <T> the type of the entity.
- * @param <K> the type of the entity's id; the {@code Mapped*Id} class of an entity with an
- *            {@link jakarta.persistence.IdClass @IdClass}.
+ * @param <K> the type of the entity's id; upstream's {@code <Entity>Id} class of an entity with an
+ *            {@link jakarta.persistence.IdClass @IdClass} or an {@link jakarta.persistence.EmbeddedId @EmbeddedId}.
  */
 public interface _Repository<T, K>
         extends CrudRepository<T, K> {

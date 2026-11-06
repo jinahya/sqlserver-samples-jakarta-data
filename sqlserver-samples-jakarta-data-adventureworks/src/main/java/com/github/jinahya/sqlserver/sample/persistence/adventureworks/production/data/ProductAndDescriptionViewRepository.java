@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.MappedProductAndDescriptionViewId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.ProductAndDescriptionViewId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.ProductAndDescriptionView;
 import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Repository;
@@ -11,7 +11,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface ProductAndDescriptionViewRepository
-        extends _Repository<ProductAndDescriptionView, MappedProductAndDescriptionViewId>,
-                CrudRepository<ProductAndDescriptionView, MappedProductAndDescriptionViewId> {
+        extends _Repository<ProductAndDescriptionView, ProductAndDescriptionViewId>,
+                CrudRepository<ProductAndDescriptionView, ProductAndDescriptionViewId> {
 
 }

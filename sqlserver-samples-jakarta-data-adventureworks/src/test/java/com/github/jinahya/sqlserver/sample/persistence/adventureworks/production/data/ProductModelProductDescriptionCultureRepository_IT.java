@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository_IT;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.MappedProductModelProductDescriptionCultureId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.production.ProductModelProductDescriptionCultureId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.ProductModelProductDescriptionCulture;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.production.data.ProductModelProductDescriptionCultureRepository;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
@@ -11,9 +11,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(ProductModelProductDescriptionCultureRepository_.class)
 class ProductModelProductDescriptionCultureRepository_IT
-        extends _Repository_IT<ProductModelProductDescriptionCultureRepository, ProductModelProductDescriptionCulture, MappedProductModelProductDescriptionCultureId> {
+        extends _Repository_IT<ProductModelProductDescriptionCultureRepository, ProductModelProductDescriptionCulture, ProductModelProductDescriptionCultureId> {
 
     ProductModelProductDescriptionCultureRepository_IT() {
-        super(ProductModelProductDescriptionCultureRepository.class, ProductModelProductDescriptionCulture.class, MappedProductModelProductDescriptionCultureId.class);
+        super(ProductModelProductDescriptionCultureRepository.class, ProductModelProductDescriptionCulture.class, ProductModelProductDescriptionCultureId.class);
     }
 }

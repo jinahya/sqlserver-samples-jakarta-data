@@ -1,7 +1,7 @@
 package com.github.jinahya.sqlserver.sample.persistence.adventureworks.person.data;
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.person.MappedEmailAddressId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.person.EmailAddressId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.person.EmailAddress;
 import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Repository;
@@ -11,7 +11,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface EmailAddressRepository
-        extends _Repository<EmailAddress, MappedEmailAddressId>,
-                CrudRepository<EmailAddress, MappedEmailAddressId> {
+        extends _Repository<EmailAddress, EmailAddressId>,
+                CrudRepository<EmailAddress, EmailAddressId> {
 
 }

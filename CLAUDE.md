@@ -36,8 +36,9 @@ simple name in two schemas (`sales.Customer` and `website.Customer`, ...), whose
 - One per entity, `<Entity>Repository`, annotated `@Repository`. Each extends **both** `_Repository<Entity, Id>` **and**
   `CrudRepository<Entity, Id>` directly. Drop the direct `CrudRepository` and `hibernate-processor` fails with
   "repository does not have a well-defined primary entity type for inherited member 'deleteById'".
-- The id type is the type of the `@Id` attribute of the entity's mapped superclass (`Integer`, `Short`, `Long`,
-  `String`), or, for an entity with an `@IdClass`, its upstream `Mapped*Id` class.
+- The id type is the type of the `@Id` attribute of the entity's mapped superclass (`Integer`, `Long`, `String`), or,
+  for an entity with an `@IdClass` or an `@EmbeddedId`, upstream's `<Entity>Id` class (`EmployeePayHistoryId`, in
+  upstream's `<db>.mapped.<schema>`).
 - **One provider, no provider profiles.** Hibernate Data Repositories is the only Jakarta Data provider for Java SE:
   `hibernate-processor` implements every `@Repository` interface at compile time as a `<Name>_` class under
   `target/generated-sources/annotations`, which runs on an `org.hibernate.StatelessSession`. EclipseLink 5.0 has no
@@ -58,7 +59,7 @@ simple name in two schemas (`sales.Customer` and `website.Customer`, ...), whose
 ## Upstream, and the entities
 
 The upstream checkout `../../sqlserver-samples-persistence` publishes, at `0.0.1-SNAPSHOT`, one jar per database of
-**mapped superclasses (`<db>.mapped.<schema>.Mapped*`), their `Mapped*Id` id classes, their generated static
+**mapped superclasses (`<db>.mapped.<schema>.Mapped*`), their `<Entity>Id` id classes, their generated static
 metamodel, and their attribute converters**, with the `geography` and `hierarchyid` converters in the shared
 `sqlserver-samples-persistence-common` jar. They exist **only in the local `~/.m2`**: after any change upstream, run
 `./mvnw -DskipTests install` there before building here. Each module's `persistence.xml` lists the converters
@@ -68,10 +69,20 @@ upstream's lists.
   decision, and this project is that application. The entities here are verbatim copies of upstream's test
   `@Entity` classes (`src/test/java/.../<db>/<schema>/<Entity>.java` there), in the same package. **Keep them in step
   with upstream**: diff against upstream's before touching a mapping, and change the mapping there first.
+- **The copies are upstream HEAD's test entities, verbatim, with nothing of this project's own.** A member upstream
+  does not have (a named query, a method) is added to a copy only where this project uses it, by a repository method or
+  a test, and is named here; there is none so far. Before taking a difference from upstream for an addition of this
+  project's, find the upstream commit the copy matches: an old copy carries what upstream had then (the `@Nullable`s
+  and javadoc of upstream's c6fbfd6, which the copies carried until they
+  were brought to upstream's current ones). What a
+  copy needs of upstream's `src/test` besides the entities is copied too, into `src/main/java` in the same package;
+  the id classes (`<Entity>Id`) are not, since upstream's main jar has them.
 - Upstream's test package also holds keyless plain classes (views without a key, the `*_Archive` history tables,
   `ProductDocument`). They are not entities, are not copied, and have no repository.
-- Upstream has no H2 and no test-companion jar; its tests are ITs on SQL Server only, and so are these.
-- The version properties in `pom.xml` (Hibernate ORM `7.4.12.Final`, `mssql-jdbc` `13.4.0.jre11`, Hibernate Validator,
+- This project uses no test-companion jar of upstream's. Upstream tests each mapping on H2 (`<db>-test`, surefire)
+  and on SQL Server (`<db>-it`, failsafe); this project's tests are ITs on SQL Server only, on a `<db>-it` unit of its
+  own.
+- The version properties in `pom.xml` (Hibernate ORM `7.4.15.Final`, `mssql-jdbc` `13.6.2.jre11`, Hibernate Validator,
   JUnit, AssertJ, ...) deliberately mirror upstream's. Change them in step with upstream, not independently.
 - Read `../../sqlserver-samples-persistence/README.md` before touching anything about the mappings.
 

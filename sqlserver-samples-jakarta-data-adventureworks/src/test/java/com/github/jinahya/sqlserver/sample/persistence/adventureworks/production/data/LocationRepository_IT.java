@@ -10,9 +10,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(LocationRepository_.class)
 class LocationRepository_IT
-        extends _Repository_IT<LocationRepository, Location, Short> {
+        extends _Repository_IT<LocationRepository, Location, Long> {
 
     LocationRepository_IT() {
-        super(LocationRepository.class, Location.class, Short.class);
+        super(LocationRepository.class, Location.class, Long.class);
     }
 }

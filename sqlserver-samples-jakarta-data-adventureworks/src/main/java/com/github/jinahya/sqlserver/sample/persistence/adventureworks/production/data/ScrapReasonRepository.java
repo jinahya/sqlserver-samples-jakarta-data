@@ -10,7 +10,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface ScrapReasonRepository
-        extends _Repository<ScrapReason, Short>,
-                CrudRepository<ScrapReason, Short> {
+        extends _Repository<ScrapReason, Long>,
+                CrudRepository<ScrapReason, Long> {
 
 }

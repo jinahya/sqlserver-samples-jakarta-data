@@ -2,7 +2,7 @@ package com.github.jinahya.sqlserver.sample.persistence.adventureworks.humanreso
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository_IT;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.humanresources.EmployeePayHistory;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.humanresources.MappedEmployeePayHistoryId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.humanresources.EmployeePayHistoryId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.humanresources.data.EmployeePayHistoryRepository;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
 
@@ -11,9 +11,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(EmployeePayHistoryRepository_.class)
 class EmployeePayHistoryRepository_IT
-        extends _Repository_IT<EmployeePayHistoryRepository, EmployeePayHistory, MappedEmployeePayHistoryId> {
+        extends _Repository_IT<EmployeePayHistoryRepository, EmployeePayHistory, EmployeePayHistoryId> {
 
     EmployeePayHistoryRepository_IT() {
-        super(EmployeePayHistoryRepository.class, EmployeePayHistory.class, MappedEmployeePayHistoryId.class);
+        super(EmployeePayHistoryRepository.class, EmployeePayHistory.class, EmployeePayHistoryId.class);
     }
 }

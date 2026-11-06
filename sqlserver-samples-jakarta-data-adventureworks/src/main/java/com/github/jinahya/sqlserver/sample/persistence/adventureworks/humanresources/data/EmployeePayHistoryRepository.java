@@ -2,7 +2,7 @@ package com.github.jinahya.sqlserver.sample.persistence.adventureworks.humanreso
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.humanresources.EmployeePayHistory;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.humanresources.MappedEmployeePayHistoryId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.humanresources.EmployeePayHistoryId;
 import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Repository;
 
@@ -11,7 +11,7 @@ import jakarta.data.repository.Repository;
  */
 @Repository
 public interface EmployeePayHistoryRepository
-        extends _Repository<EmployeePayHistory, MappedEmployeePayHistoryId>,
-                CrudRepository<EmployeePayHistory, MappedEmployeePayHistoryId> {
+        extends _Repository<EmployeePayHistory, EmployeePayHistoryId>,
+                CrudRepository<EmployeePayHistory, EmployeePayHistoryId> {
 
 }

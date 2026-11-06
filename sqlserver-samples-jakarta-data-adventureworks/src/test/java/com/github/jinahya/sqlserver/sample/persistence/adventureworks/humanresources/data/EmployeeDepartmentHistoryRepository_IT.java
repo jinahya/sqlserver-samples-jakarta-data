@@ -2,7 +2,7 @@ package com.github.jinahya.sqlserver.sample.persistence.adventureworks.humanreso
 
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.data._Repository_IT;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.humanresources.EmployeeDepartmentHistory;
-import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.humanresources.MappedEmployeeDepartmentHistoryId;
+import com.github.jinahya.sqlserver.sample.persistence.adventureworks.mapped.humanresources.EmployeeDepartmentHistoryId;
 import com.github.jinahya.sqlserver.sample.persistence.adventureworks.humanresources.data.EmployeeDepartmentHistoryRepository;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
 
@@ -11,9 +11,9 @@ import org.jboss.weld.junit5.auto.AddBeanClasses;
  */
 @AddBeanClasses(EmployeeDepartmentHistoryRepository_.class)
 class EmployeeDepartmentHistoryRepository_IT
-        extends _Repository_IT<EmployeeDepartmentHistoryRepository, EmployeeDepartmentHistory, MappedEmployeeDepartmentHistoryId> {
+        extends _Repository_IT<EmployeeDepartmentHistoryRepository, EmployeeDepartmentHistory, EmployeeDepartmentHistoryId> {
 
     EmployeeDepartmentHistoryRepository_IT() {
-        super(EmployeeDepartmentHistoryRepository.class, EmployeeDepartmentHistory.class, MappedEmployeeDepartmentHistoryId.class);
+        super(EmployeeDepartmentHistoryRepository.class, EmployeeDepartmentHistory.class, EmployeeDepartmentHistoryId.class);
     }
 }
